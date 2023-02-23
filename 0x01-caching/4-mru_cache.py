@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """MRUCache module"""
 
-from collections import deque
-
 from base_caching import BaseCaching
 
 
@@ -30,7 +28,7 @@ class MRUCache(BaseCaching):
         self.cache_data[key] = item
         # print(self.cache_data)
         if len(self.cache_data) > self.MAX_ITEMS:
-            maxNum = max(self.dict, key=self.dict.get)
+            maxNum = max(self.dict, key=self.dict.get)  #type: ignore
             if maxNum in self.list:
                 for num in self.list:
                     if num == maxNum:
@@ -51,31 +49,3 @@ class MRUCache(BaseCaching):
         self.dict.update({key: self.dict[key] + 1})
         print(f"get req {key}: {self.dict}")
         return self.cache_data.get(key)
-
-
-my_cache = MRUCache()
-my_cache.put("A", "Hello")
-my_cache.put("B", "World")
-my_cache.put("C", "Holberton")
-my_cache.put("D", "School")
-my_cache.print_cache()
-print(my_cache.get("B"))
-my_cache.put("E", "Battery")
-my_cache.print_cache()
-my_cache.put("C", "Street")
-my_cache.print_cache()
-print(my_cache.get("A"))
-print(my_cache.get("B"))
-print(my_cache.get("C"))
-my_cache.put("F", "Mission")
-my_cache.print_cache()
-my_cache.put("G", "San Francisco")
-my_cache.print_cache()
-my_cache.put("H", "H")
-my_cache.print_cache()
-my_cache.put("I", "I")
-my_cache.print_cache()
-my_cache.put("J", "J")
-my_cache.print_cache()
-my_cache.put("K", "K")
-my_cache.print_cache()
