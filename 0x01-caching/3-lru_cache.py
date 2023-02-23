@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""FIFOCache module"""
-
-from collections import deque
+"""LRUCache module"""
 
 from base_caching import BaseCaching
 
