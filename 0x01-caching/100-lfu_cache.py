@@ -60,6 +60,7 @@ class LFUCache(BaseCaching):
         """ Find the least recently used key """
         lru_key = None
         for k in keys:
-            if lru_key is None or self.last_accessed[k] < self.last_accessed[lru_key]:
+            if lru_key is None or self.last_accessed[k]\
+                    < self.last_accessed[lru_key]:
                 lru_key = k
         return lru_key
